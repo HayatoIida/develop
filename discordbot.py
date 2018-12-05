@@ -23,7 +23,7 @@ async def on_message(message):
         length = len(mem)
         teammem = -(- length // 2 )
         for x in mem:
-            await client.send_message(message.channel, teammem)
+            await client.send_message(message.channel, length)
             t1len = len(t1.voice_members)
             t2len = len(t2.voice_members)
             if t1len < teammem and t2len < teammem:
@@ -32,6 +32,13 @@ async def on_message(message):
                 await client.move_member(x, t1)
             elif t2len < teammem:
                 await client.move_member(x, t2)
+
+    if message.content.startswith('!chlength'):
+        c = client.get_channel('489330400032849940')
+        mem = c.voice_members
+        length = len(mem)
+        await client.send_message(message.channel, length)
+
 
     if message.content.startswith('!fgather'):
         c = client.get_channel('489330400032849940')
