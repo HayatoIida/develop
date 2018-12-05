@@ -47,12 +47,14 @@ async def on_message(message):
         t1len = len(t1mem)
         while t1len > 0:
             client.move_member(t1mem[0], c)
+            t1mem = t1.voice_members
             t1len = len(t1mem)
 
         t2mem = t2.voice_members
         t2len = len(t2mem)
         while t2len > 0:
             client.move_member(t2mem[0], c)
+            t2mem = t2.voice_members
             t2len = len(t2mem)
 
     if message.content.startswith('!fcommand'):
