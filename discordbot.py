@@ -44,10 +44,10 @@ async def on_message(message):
         t2 = client.get_channel('519678398214176789')
         t1mem = t1.voice_members
         for x in t1mem:
-            await client.move_member(t1mem[0], c)
+            client.move_member(t1[0], c)
         t2mem = t2.voice_members
         for y in t2mem:
-            await client.move_member(t2mem[0], c)
+            client.move_member(t2[0], c)
 
     if message.content.startswith('!fcommand'):
         if client.user == message.author:
