@@ -45,7 +45,9 @@ async def on_message(message):
             await client.move_member(x, c)
 
     if message.content.startswith('!fcommand'):
-        await client.send_message(message.channel,'!flocation: random location /n !fteam: random team /n !fgather:gether user')
+        if client.user == message.author:
+            return
+        await client.send_message(message.channel,'!flocation, !fteam, !fgather')
 
 
 
