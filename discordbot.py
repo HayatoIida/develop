@@ -30,7 +30,7 @@ async def on_message(message):
                 await client.move_member(mem[0], random.choice([t1,t2]))
             elif t1len < teammem:
                 await client.move_member(mem[0], t1)
-            elif t2len < teammem:
+            else:
                 await client.move_member(mem[0], t2)
             mem = c.voice_members
             length = len(mem)
