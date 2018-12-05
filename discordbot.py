@@ -42,11 +42,13 @@ async def on_message(message):
         c = client.get_channel('489330400032849940')
         t1 = client.get_channel('519678340232249344')
         t2 = client.get_channel('519678398214176789')
+
         t1mem = t1.voice_members
         t1len = len(t1mem)
         while t1len > 0:
             client.move_member(t1mem[0], c)
             t1len = len(t1mem)
+
         t2mem = t2.voice_members
         t2len = len(t2mem)
         while t2len > 0:
