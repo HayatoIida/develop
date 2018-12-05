@@ -18,9 +18,9 @@ async def on_message(message):
         await client.send_message(message.channel, random.choice(['ジャンク・ジャンクション', 'ホーンテッド・ヒルズ', 'プレザント・パーク', 'スノビー・ショア', 'バイキング・ビレッジ', 'ティルテッド・タワー', 'グリーシー・グローブ', 'シフティ・シャフト', 'レイジー・リンクス', 'トマト・テンプル', 'リスキー・リールズ', 'ウェイリング・ウッズ', 'ダスティ・ディポット', 'ソルティ・スプリングス', 'フェイタル・フィールド', 'リテイル・ロー', 'フラッシュ・ファクトリー', 'ラッキー・ランディング', 'パラダイス・パームズ', 'レイジーリンクスの西のモーテル', 'ティルテッドタワー西のおいしめの土地', 'フラッシュファクトリー北東のおいしめの土地', 'ロンリー・ロッジ', 'サーキット', '砂漠南のおいしめの土地', 'コンテナのとこ']))
 
     if message.content.startswith('!fteam'):
-        c = client.get_channel('518769872944103442')
-        t1 = client.get_channel('519646996118896661')
-        t2 = client.get_channel('519646907639791616')
+        c = client.get_channel('489330400032849940')
+        t1 = client.get_channel('519678340232249344')
+        t2 = client.get_channel('519678398214176789')
         mem = c.voice_members
         length = math.ceil(len(mem)/2)
         for x in mem:
@@ -34,9 +34,9 @@ async def on_message(message):
                 await client.move_member(x, t2)
 
     if message.content.startswith('!fgather'):
-        c = client.get_channel('518769872944103442')
-        t1 = client.get_channel('519646996118896661')
-        t2 = client.get_channel('519646907639791616')
+        c = client.get_channel('489330400032849940')
+        t1 = client.get_channel('519678340232249344')
+        t2 = client.get_channel('519678398214176789')
         t1mem = t1.voice_members
         for x in t1mem:
             await client.move_member(x, c)
@@ -44,9 +44,11 @@ async def on_message(message):
         for x in t2mem:
             await client.move_member(x, c)
 
+    if message.content.startswith('!fcommand'):
+        await client.send_message(message.channel,'!flocation: random location /n !fteam: random team /n !fgather:gether user')
+
 
 
 # botの接続と起動
 # （tokenにはbotアカウントのアクセストークンを入れてください）
-client.run('NTE5NTU0NDUzODM0MTcwMzk0.DuhAjg.5yDotuamRFXDJQ2e19twGhIJKsE')
 client.run('NTE5NTU0NDUzODM0MTcwMzk0.DuhAjg.5yDotuamRFXDJQ2e19twGhIJKsE')
