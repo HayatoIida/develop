@@ -23,6 +23,7 @@ async def on_message(message):
         length = len(mem)
         teammem = -(- length // 2 )
         for x in mem:
+            await client.send_message(message.channel, teammem)
             t1len = len(t1.voice_members)
             t2len = len(t2.voice_members)
             if t1len < teammem and t2len < teammem:
