@@ -1,3 +1,4 @@
+#hello
 import discord # インストールした discord.py
 import random
 
