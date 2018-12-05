@@ -25,13 +25,15 @@ async def on_message(message):
         teammem = -(- length // 2 )
         t1len = len(t1.voice_members)
         t2len = len(t2.voice_members)
-        for x in mem:
+        while length > 0:
             if t1len < teammem and t2len < teammem:
                 await client.move_member(mem[0], random.choice([t1,t2]))
             elif t1len < teammem:
                 await client.move_member(mem[0], t1)
             elif t2len < teammem:
                 await client.move_member(mem[0], t2)
+            mem = c.voice_members
+            length = len(mem)
             t1len = len(t1.voice_members)
             t2len = len(t2.voice_members)
 
