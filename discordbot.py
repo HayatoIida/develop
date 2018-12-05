@@ -32,7 +32,6 @@ async def on_message(message):
                 await client.move_member(mem[0], t1)
             elif t2len < teammem:
                 await client.move_member(mem[0], t2)
-            mem = c.voice_members
             t1len = len(t1.voice_members)
             t2len = len(t2.voice_members)
 
