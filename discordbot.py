@@ -23,15 +23,14 @@ async def on_message(message):
         length = len(mem)
         teammem = -(- length // 2 )
         for x in mem:
-            await client.send_message(message.channel, length)
             t1len = len(t1.voice_members)
             t2len = len(t2.voice_members)
             if t1len < teammem and t2len < teammem:
-                await client.move_member(x, random.choice([t1,t2]))
+                client.move_member(x, random.choice([t1,t2]))
             elif t1len < teammem:
-                await client.move_member(x, t1)
+                client.move_member(x, t1)
             elif t2len < teammem:
-                await client.move_member(x, t2)
+                client.move_member(x, t2)
 
     if message.content.startswith('!chlength'):
         c = client.get_channel('489330400032849940')
@@ -46,10 +45,10 @@ async def on_message(message):
         t2 = client.get_channel('519678398214176789')
         t1mem = t1.voice_members
         for x in t1mem:
-            await client.move_member(x, c)
+            client.move_member(x, c)
         t2mem = t2.voice_members
         for y in t2mem:
-            await client.move_member(y, c)
+            client.move_member(y, c)
 
     if message.content.startswith('!fcommand'):
         if client.user == message.author:
