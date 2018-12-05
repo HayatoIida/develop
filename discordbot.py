@@ -51,6 +51,7 @@ async def on_message(message):
 
 
 
+
 # botの接続と起動
 # （tokenにはbotアカウントのアクセストークンを入れてください）
 client.run('NTE5NTU0NDUzODM0MTcwMzk0.DuhAjg.5yDotuamRFXDJQ2e19twGhIJKsE')
