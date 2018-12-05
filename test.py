@@ -22,15 +22,16 @@ async def on_message(message):
         t1 = client.get_channel('519646996118896661')
         t2 = client.get_channel('519646907639791616')
         mem = c.voice_members
-        length = math.ceil(len(mem)/2)
+        l = len(mem)
+        length = -(- l // 2 )
         for x in mem:
             t1len = len(t1.voice_members)
             t2len = len(t2.voice_members)
             if t1len < length and t2len < length:
                 await client.move_member(x, random.choice([t1,t2]))
-            elif t1 < length:
+            elif t1len < length:
                 await client.move_member(x, t1)
-            elif t2 < length:
+            elif t2len < length:
                 await client.move_member(x, t2)
 
     if message.content.startswith('!fgather'):
