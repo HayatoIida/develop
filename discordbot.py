@@ -43,11 +43,15 @@ async def on_message(message):
         t1 = client.get_channel('519678340232249344')
         t2 = client.get_channel('519678398214176789')
         t1mem = t1.voice_members
-        for x in t1mem:
-            client.move_member(t1[0], c)
+        t1len = len(t1mem)
+        while t1len > 0:
+            client.move_member(t1mem[0], c)
+            t1len = len(t1mem)
         t2mem = t2.voice_members
-        for y in t2mem:
-            client.move_member(t2[0], c)
+        t2len = len(t2mem)
+        while t2len > 0:
+            client.move_member(t2mem[0], c)
+            t2len = len(t2mem)
 
     if message.content.startswith('!fcommand'):
         if client.user == message.author:
