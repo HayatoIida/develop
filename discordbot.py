@@ -15,6 +15,7 @@ async def on_message(message):
     if message.content.startswith('!flocation'):
         await client.send_message(message.channel, random.choice(['ジャンク・ジャンクション', 'ホーンテッド・ヒルズ', 'プレザント・パーク', 'スノビー・ショア', 'バイキング・ビレッジ', 'ティルテッド・タワー', 'グリーシー・グローブ', 'シフティ・シャフト', 'レイジー・リンクス', 'トマト・テンプル', 'リスキー・リールズ', 'ウェイリング・ウッズ', 'ダスティ・ディポット', 'ソルティ・スプリングス', 'フェイタル・フィールド', 'リテイル・ロー', 'フラッシュ・ファクトリー', 'ラッキー・ランディング', 'パラダイス・パームズ', 'レイジーリンクスの西のモーテル', 'ティルテッドタワー西のおいしめの土地', 'フラッシュファクトリー北東のおいしめの土地', 'ロンリー・ロッジ', 'サーキット', '砂漠南のおいしめの土地', 'コンテナのとこ']))
 
+
     if message.content.startswith('!fteam'):
         c = client.get_channel('489330400032849940')
         t1 = client.get_channel('519678340232249344')
@@ -22,16 +23,19 @@ async def on_message(message):
         mem = c.voice_members
         length = len(mem)
         teammem = -(- length // 2 )
-        for x in mem:
-            await client.send_message(message.channel, length)
+        t1len = len(t1.voice_members)
+        t2len = len(t2.voice_members)
+        while length > 0:
+            if t1len < teammem and t2len < teammem:
+                await client.move_member(mem[0], random.choice([t1,t2]))
+            elif t1len < teammem:
+                await client.move_member(mem[0], t1)
+            elif t2len < teammem:
+                await client.move_member(mem[0], t2)
+            mem = c.voice_members
+            length = len(mem)
             t1len = len(t1.voice_members)
             t2len = len(t2.voice_members)
-            if t1len < teammem and t2len < teammem:
-                await client.move_member(x, random.choice([t1,t2]))
-            elif t1len < teammem:
-                await client.move_member(x, t1)
-            elif t2len < teammem:
-                await client.move_member(x, t2)
 
     if message.content.startswith('!chlength'):
         c = client.get_channel('489330400032849940')
@@ -39,17 +43,16 @@ async def on_message(message):
         length = len(mem)
         await client.send_message(message.channel, length)
 
-
     if message.content.startswith('!fgather'):
         c = client.get_channel('489330400032849940')
         t1 = client.get_channel('519678340232249344')
         t2 = client.get_channel('519678398214176789')
         t1mem = t1.voice_members
-        for x in t1mem:
-            await client.move_member(x, c)
+        while t1mem > 0:
+            client.move_member(t1[0], c)
         t2mem = t2.voice_members
         for y in t2mem:
-            await client.move_member(y, c)
+            client.move_member(y, c)
 
     if message.content.startswith('!fcommand'):
         if client.user == message.author:
