@@ -1,6 +1,6 @@
-#hello
 import discord # インストールした discord.py
 import random
+import time
 
 client = discord.Client() # 接続に使用するオブジェクト
 #locaton = ['ジャンク・ジャンクション', 'ホーンテッド・ヒルズ', 'プレザント・パーク', 'スノビー・ショア', 'バイキング・ビレッジ', 'ティルテッド・タワー', 'グリーシー・グローブ', 'シフティ・シャフト', 'レイジー・リンクス', 'トマト・テンプル', 'リスキー・リールズ', 'ウェイリング・ウッズ', 'ダスティ・ディポット', 'ソルティ・スプリングス', 'フェイタル・フィールド', 'リテイル・ロー', 'フラッシュ・ファクトリー', 'ラッキー・ランディング', 'パラダイス・パームズ', 'レイジーリンクスの西のモーテル', 'ティルテッドタワー西のおいしめの土地', 'フラッシュファクトリー北東のおいしめの土地', 'ロンリー・ロッジ', 'サーキット', '砂漠南のおいしめの土地', 'コンテナのとこ']
@@ -29,10 +29,13 @@ async def on_message(message):
         while length > 0:
             if t1len < teammem and t2len < teammem:
                 await client.move_member(mem[0], random.choice([t1,t2]))
+                await time.sleep(1.0)
             elif t1len < teammem:
                 await client.move_member(mem[0], t1)
+                await time.sleep(1.0)
             else:
                 await client.move_member(mem[0], t2)
+                await time.sleep(1.0)
             mem = c.voice_members
             length = len(mem)
             t1len = len(t1.voice_members)
